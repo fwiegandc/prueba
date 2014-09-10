@@ -12,19 +12,9 @@
 	</p>
 	<p>
 	<%= f.label :usuario_id %>
-	<%= f.number_field :usuario_id %>
+	<%= collection_select(:post, :usuario_id, @usuarios, :id, :nombre) %>
 	</p>
 	<%= f.submit %>
 
-
-<% end %>
-
-<h1> Lista de usuarios </h1>
-
-<% @usuarios.each do |usuario| %>
-
-	<p> Nombre: <%= usuario.nombre %> </p>
-	<p> Direccion: <%= usuario.direccion %> </p>
-	<p> Id: <%= usuario.id %> </p>
 
 <% end %>

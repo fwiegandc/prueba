@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 		if Usuario.exists?(params[:comment].permit(:usuario_id)["usuario_id"])
 			@usuario = Usuario.find(params[:comment].permit(:usuario_id)["usuario_id"])
 			@comment = @post.comments.create(params[:comment].permit(:titulo, :mensaje, :usuario_id))
-			redirect_to posts_path
+			redirect_to post_path(@post)
 		else
 			redirect_to posts_path
 		end

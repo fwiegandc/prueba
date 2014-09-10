@@ -4,12 +4,13 @@
 <p> Usuario: <%= @post.usuario.nombre %>
 <p> Mensaje: <%= @post.mensaje %> </p>
 
-<p> <%= link_to 'Eliminar', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
+<p> <%= link_to 'Volver a los post', posts_path %> | <%= link_to 'Eliminar', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <h1> Comentarios al post </h1>
 
 <% @post.comments.each do |c| %>
 
+<br><br>
 <p> Titulo:  <%= c.titulo %> </p>
 <p> Usuario: <%= c.usuario.nombre %>
 <p> Mensaje: <%= c.mensaje %> </p>
@@ -31,8 +32,8 @@
     <%= f.text_area :mensaje %>
  </p>
   <p>
-    <%= f.label :usuario_id %><br>
-    <%= f.text_field :usuario_id %>
+    <%= f.label :usuario_id %>
+    <%= collection_select(:comment, :usuario_id, @usuarios, :id, :nombre) %>
  </p>
  <%= f.submit %>
 
