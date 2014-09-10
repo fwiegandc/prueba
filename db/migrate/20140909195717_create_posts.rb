@@ -1,0 +1,11 @@
+class CreatePosts < ActiveRecord::Migration
+  def change
+    create_table :posts do |t|
+      t.string :titulo
+      t.string :mensaje
+      t.references :usuario, index: true
+
+      t.timestamps
+    end
+  end
+end

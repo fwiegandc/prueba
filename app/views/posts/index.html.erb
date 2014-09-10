@@ -1,0 +1,11 @@
+<h1> Red social de barrios </h1>
+<h2> Post del día </h2>
+<% @posts.each do |post| %>
+
+<p> Titulo:  <%= post.titulo %> </p>
+<p> Usuario: <%= post.usuario.nombre %>
+<p> Mensaje: <%= post.mensaje %> </p>
+
+<%= link_to 'Ver post', post_path(post) %>
+
+<% end %>
